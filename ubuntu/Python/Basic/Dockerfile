@@ -15,7 +15,8 @@ ENV LANG=C.UTF-8
 RUN apt-get -qq -y update
 RUN set -ex \
     && apt-get install -y dpkg-dev g++ gcc build-essential libssl-dev openssl curl libffi-dev libbz2-dev \
-    libpng-dev libpq-dev wget zlib1g-dev python-dev\
+    libpng-dev libpq-dev wget zlib1g-dev python-dev libsqlite3-dev libncurses5-dev libgdbm-dev libnss3-dev \
+    libreadline-dev \
     && wget --no-check-certificate \
     https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz\
     && mkdir -p /usr/src/python \

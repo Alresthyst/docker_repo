@@ -2,6 +2,7 @@
 
 FROM jenkins/jenkins:lts
 
+
 USER root
 
 COPY docker_install.sh /docker_install.sh

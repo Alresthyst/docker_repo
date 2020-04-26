@@ -1,0 +1,24 @@
+# https://lovemewithoutall.github.io/it/start-docker/
+# https://docs.gitlab.com/omnibus/docker/
+
+web:
+  image: 'gitlab/gitlab-ce:12.10.1-ce.0'
+  restart: always
+  container_name: gitlab_kwk1602
+  user: root
+
+  environment:
+    COMPOSE_CONVERT_WINDOWS_PATHS: 0
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'http://alresthyst.iptime.org:57080'
+      gitlab_rails['gitlab_shell_ssh_port'] = 57022
+
+  ports:
+    - '57080:57080'
+    - '57443:443'
+    - '57022:22'
+
+  volumes:
+    - '/home/tester/kwk/ServerRepository/Gitlab/config:/etc/gitlab'
+    - '/home/tester/kwk/ServerRepository/Gitlab/logs:/var/log/gitlab'
+    - '/home/tester/kwk/ServerRepository/Gitlab/data:/var/opt/gitlab'
